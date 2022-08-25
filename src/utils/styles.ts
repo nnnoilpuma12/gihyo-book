@@ -15,7 +15,7 @@ type LineHeightThemeKeys = keyof typeof theme.lineHeights;
 
 // 各Themeのキーの型
 export type Space = SpaceThemeKeys | (string & {});
-export type Coler = ColorThemeKeys | (string & {});
+export type Color = ColorThemeKeys | (string & {});
 export type FontSize = FontSizeThemeKeys | (string & {});
 export type LetterSpacing = LetterSpacingThemeKeys | (string & {});
 export type LineHeight = LineHeightThemeKeys | (string & {});
@@ -44,6 +44,7 @@ export function toPropValue<T>(
   if (prop === undefined) return undefined;
 
   if (isResponsivePropType(prop)) {
+    
     const result = [];
     for (const responsiveKey in prop) {
       if (responsiveKey === "base") {
